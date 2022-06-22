@@ -1,0 +1,1 @@
+sudo docker build --tag lango_hardware --file ./Dockerfile .

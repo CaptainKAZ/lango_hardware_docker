@@ -32,3 +32,9 @@ cp vmlinux /mnt/c/Users/<yourwindowsloginname>/ #把内核复制出来
 ```
 kernel=C:\\Users\\<yourwindowsloginname>\\vmlinux
 ```
+
+然后重启wsl 再运行modprobe
+
+然后再`ifconfig -a`应该可以看到usb2can的设备了
+
+关于去除加号然后编译。我也找了[教程](https://blog.csdn.net/weixin_34421376/article/details/116871095#:~:text=kernel%E7%89%88%E6%9C%AC%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8A%A0%E5%8F%B7%20%28plug%20sign%29%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%8F%AF%E8%83%BD%E6%98%AF%E5%A6%82%E4%B8%8B%E4%B8%A4%E7%82%B9%EF%BC%8C%E5%BD%93%E7%84%B6%E5%89%8D%E6%8F%90%E6%98%AF%E4%BD%BF%E7%94%A8Linux%E7%9A%84GIT,repository%EF%BC%8C%E4%B8%94CONFIG_LOCALVERSION_AUTO%E5%92%8CLOCALVERSION%E9%83%BD%E6%B2%A1%E6%9C%89%E8%AE%BE%E7%BD%AE%E3%80%82%20%281%29%E5%A6%82%E6%9E%9C%E5%BD%93%E5%89%8Drepository%E7%9A%84commit%20ID%E4%B8%8D%E6%98%AF%E6%9F%90%E4%B8%80%E4%B8%AAtag%EF%BC%8C%E5%88%99%E9%BB%98%E8%AE%A4%E6%9C%89%E4%B8%80%E4%B8%AA%E5%8A%A0%E5%8F%B7%E3%80%82)，但是并没有成功

@@ -79,7 +79,6 @@ RUN echo "source /opt/ros/foxy/setup.bash"  >> ~/.bashrc && \
 # As it uses huge amount of memory(at least 10G) and always failed to build (OOM), seperate it as a new layer. You may need to reduce the num workers.
 RUN mkdir -p ~/ros2_ws/src && \
     cd ~/ros2_ws/src && \
-    git clone -b fw-v0.5.1 https://github.com/CaptainKAZ/odrive_ros2_control.git && \
     git clone https://github.com/CaptainKAZ/quadruped_ros2_control.git && \
     . /opt/ros/foxy/setup.sh && \
     cd ~/ros2_ws && colcon build --symlink-install --cmake-args -D CMAKE_BUILD_TYPE=Release\

@@ -2,9 +2,34 @@
 
 ## 准备
 
-1. Windows 11 专业版操作系统 启用 Hyper-V 功能与 WSL 功能（控制面板-添加或删除Windows功能）
+1. Windows 11 专业版操作系统 启用 Hyper-V 功能与 WSL 功能（控制面板-添加或删除Windows功能）并且编译安装SocketCAN有关驱动 在wsl.md中有教程
 2. Windows Terminal（终端用的舒服）
-3. Docker Desktop
+3. 在WSL Ubuntu中安装完整版Docker
+
+(!!!!更新!!!!不要安装Docker Desktop,会导致`--net=host`无法共享Ubuntu内SocketCAN网络)
+
+安装方法如下 [主要参考链接](https://dev.to/felipecrs/simply-run-docker-on-wsl2-3o8)
+```bash
+sudo apt install curl
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh && rm get-docker.sh #这一步他会自作聪明地sleep30s推荐你用Docker Desktop.我信你个鬼 你个糟老头子坏得很
+
+#用户组设置
+sudo groupadd docker 
+sudo usermod -aG docker $USER
+#设置docker服务开机自启
+sudo touch /etc/wsl.conf #这文件按理说本来就存在 不存在可以自己创建
+sudo gedit /etc/wsl.conf
+# 然后加入以下内容
+[boot]
+command = "service docker start && service udev start && modprobe can && modprobe can-raw && modprobe gs_usb"
+#
+exit #退出wsl
+然后在PowerShell里面输入
+wsl --shutdown #重启WSL
+```
+
+
 4. Visual Studio Code
 
 ## 部署

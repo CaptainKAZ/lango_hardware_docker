@@ -14,10 +14,14 @@
 
 sudo docker run -it \
 --privileged \
---network host \
+--net=host \
+-v /run/udev/:/run/udev/ \
 -v /dev/bus/usb:/dev/bus/usb \
--v ws:/home/lango/ros2_ws \
 -v /tmp/.X11-unix:/tmp/.X11-unix -v /mnt/wslg:/mnt/wslg \
 -v /usr/lib/wsl:/usr/lib/wsl --device=/dev/dxg -e DISPLAY=$DISPLAY \
 -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
--e PULSE_SERVER=$PULSE_SERVER -e LD_LIBRARY_PATH=/usr/lib/wsl/lib --gpus all lango_hardware
+-e PULSE_SERVER=$PULSE_SERVER -e LD_LIBRARY_PATH=/usr/lib/wsl/lib --gpus all
+-v ws:/home/lango/ros2_ws \
+ lango_hardware
+
+

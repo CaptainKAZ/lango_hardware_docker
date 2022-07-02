@@ -114,3 +114,7 @@ Docker内 更改PID UID
 ```bash
 usermod -u PID lango && usermod -g GID lango
 ```
+
+## 使得CAN设备具有固定的自定义名称
+
+请参考udev_rules.md

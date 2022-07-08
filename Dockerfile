@@ -12,7 +12,7 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
 # Commands are combined in single RUN statement with "apt/lists" folder removal to reduce image size
 RUN apt-get update && \
     apt-get install -y ros-${ROS_DISTRO}-ros2-control ros-${ROS_DISTRO}-ros2-controllers ros-${ROS_DISTRO}-qpoases-vendor ros-${ROS_DISTRO}-xacro \
-    libusb-1.0-0-dev python3 python3-pip wget can-utils && \
+    libusb-1.0-0-dev python3 python3-pip wget can-utils iproute2 && \
     pip3 install odrive==0.5.1.post0 && \
     rm -rf /var/lib/apt/lists/* && sudo rm -r ~/.cache/pip
 

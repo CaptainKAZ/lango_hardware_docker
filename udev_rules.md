@@ -24,10 +24,13 @@ SUBSYSTEMS=="usb",GOTO="ENDCAN"
 
 LABEL="CAN"
 SUBSYSTEMS=="usb", ATTRS{serial}=="758A559A0E52",GOTO="LANGO_CAN0"
-#在这添加其他的CAN设备
+# 在这添加其他的CAN设备 示例：
+# SUBSYSTEMS=="usb", ATTRS{serial}=="xxxxx",GOTO="LANGO_CAN1"
 LABEL="LANGO_CAN0"
 KERNEL=="can*", NAME="lango_can0",GOTO="ENDCAN"
-#在这添加LABEL和指定名称
+# 在这添加LABEL和指定名称 示例：
+# LABEL="LANGO_CAN1"
+# KERNEL=="can*", NAME="lango_can1",GOTO="ENDCAN"
 LABEL="ENDCAN"
 ```
 就是加了一个条件跳转
